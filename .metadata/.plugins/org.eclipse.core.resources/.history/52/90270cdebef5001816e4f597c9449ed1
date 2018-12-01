@@ -1,0 +1,22 @@
+
+public class DataCollector {
+
+	
+	ArrayList<RunData> runs;
+	
+	public DataCollector(int r) {
+		runs = new RunData[r];
+	}
+	
+	public void addRun(RunData run) {
+		runs[index] = run;
+		index++;
+	}
+	
+	public void findData() {
+		
+	}
+	
+	public RunData getRun(int i) { return runs[i]; }
+	
+}
