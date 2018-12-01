@@ -81,24 +81,21 @@ public class Culminating {
 				case 5:
 					//Diamond
 					desiredCards = getDesiredCardRange(2*52/4, 3*52/4);
-					currRunD.setSpinnerResult(3);
+					currRunD.setSpinnerResult(0);
 					break;
 				case 6:
 					//Heart
 					desiredCards = getDesiredCardRange(3*52/4,52);
-					currRunD.setSpinnerResult(4);
 					break;
 				}
 			} else if(spinnerVal < 20) {
 				//Rank
 				int startCard = randGen.nextInt(52-4);
 				desiredCards = getDesiredCardRange(startCard, startCard+4);
-				currRunD.setSpinnerResult(5);
 			} else {
 				//Rank and colour
 				int startCard = randGen.nextInt(52-2);
 				desiredCards = getDesiredCardRange(startCard, startCard+2);
-				currRunD.setSpinnerResult(6);
 			}
 			
 			//Card Drawing
