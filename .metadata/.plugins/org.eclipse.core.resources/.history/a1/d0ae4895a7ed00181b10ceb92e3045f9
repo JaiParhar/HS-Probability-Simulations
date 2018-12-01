@@ -1,0 +1,151 @@
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class Culminating {
+	
+	public static void main(String[] args) {
+		int runs = 1;
+		
+		int houseWins = 0;
+		int p1Wins = 0;
+		int p2Wins = 0;
+		
+		CardDeck deck = new CardDeck();
+		
+		//printIntArray(getDesiredCardRange(52/2,52));
+		
+		Random randGen = new Random();
+		gameloop:
+		for(int r = 0; r < runs; r++) {
+			
+			//Coin flip
+			boolean p1Advantage = randGen.nextBoolean();
+			
+			//Spinner
+			int desiredCards[] = null;
+			int spinnerVal = randGen.nextInt(36);
+			if(spinnerVal < 7) {
+				//Black, red, club, spades, diamond, heart, or fail
+				switch(spinnerVal) {
+				case 0: 
+					//Fail
+					houseWins++;
+					continue gameloop;
+				case 1:
+					//Black
+					desiredCards = getDesiredCardRange(0,52/2);
+					break;
+				case 2:
+					//Red
+					desiredCards = getDesiredCardRange(52/2, 52);
+					break;
+				case 3:
+					//Club
+					desiredCards = getDesiredCardRange(0,52/4);
+					break;
+				case 4:
+					//Spade
+					desiredCards = getDesiredCardRange(52/4, 2*52/4);
+					break;
+				case 5:
+					//Diamond
+					desiredCards = getDesiredCardRange(2*52/4, 3*52/4);
+					break;
+				case 6:
+					//Heart
+					desiredCards = getDesiredCardRange(3*52/4,52);
+					break;
+				}
+			} else if(spinnerVal < 20) {
+				//Rank
+				int startCard = randGen.nextInt(52-4);
+				desiredCards = getDesiredCardRange(startCard, startCard+4);
+			} else {
+				//Rank and colour
+				int startCard = randGen.nextInt(52-2);
+				desiredCards = getDesiredCardRange(startCard, startCard+2);
+			}
+			
+			//Card Drawing
+			deck.resetDeck();
+			deck.shuffle(5);
+			int maxDraws = 26;
+			for(int i = 0; i < maxDraws; i++) {
+				int drawnCard = deck.draw();
+				if(isInArray(desiredCards, drawnCard)) {
+					if(i%2 == 0) {
+						if(p1Advantage) { p1Wins++; }
+					} else {
+						if(p1Advantage) { p2Wins++; }
+					}
+					continue gameloop;
+				}
+			}
+			houseWins++;
+			
+		}
+	}
+	
+	//Util functions
+	public static boolean isBetweenInclusive(int i, int bL, int bH) { return (bL<=i) && (i<=bH); }
+	public static boolean isBetweenInclusiveD(double i, double bL, double bH) {	return (bL<=i) && (i<=bH); }
+	public static int[] getDesiredCardRange(int startInclusive, int endExclusive) {
+		int size = endExclusive - startInclusive;
+		int cardReturn[] = new int[size];
+		for(int i = 0; i < size; i++) {
+			cardReturn[i] = i+startInclusive;
+		}
+		return cardReturn;
+	}
+	public static boolean isInArray(int arr[], int obj) {
+		for(int i = 0; i < arr.length; i++) {
+			if(obj == arr[i]) { return true; }
+		}
+		return false;
+	}
+	
+	//Testing functions
+	public static void printIntArray(int[] arr) {
+		if(arr.length > 0) {
+			System.out.print(arr[0]);
+			for(int i = 1; i < arr.length; i++) { System.out.print(", " + arr[i]); } System.out.print("\n");
+		}
+	}
+}
+
+
+class CardDeck {
+	ArrayList<Integer> cards = new ArrayList<Integer>();
+	
+	public void resetDeck() {
+		cards.clear();
+		for(int i = 0; i < 52; i++) {
+			cards.add(i);
+		}
+	}
+	
+	public void shuffle(int shuffles) {
+		for(int s = 0; s < shuffles; s++) {
+			Random rnd = ThreadLocalRandom.current();
+		    for (int i = cards.size() - 1; i > 0; i--)
+		    {
+		      int index = rnd.nextInt(i + 1);
+		      int a = cards.get(index);
+		      cards.set(index, cards.get(i));
+		      cards.set(i, a);
+		    }
+		}
+	}
+	
+	public int draw() {
+		return cards.remove(0);
+	}
+	
+	public void printDeck() {
+		if(cards.size() > 0) {
+			System.out.print(cards.get(0));
+			for(int i = 1; i < cards.size(); i++) { System.out.print(", " + cards.get(i)); } System.out.print("\n");
+		}
+	}
+}

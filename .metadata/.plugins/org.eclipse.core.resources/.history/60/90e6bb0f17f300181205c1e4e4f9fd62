@@ -1,0 +1,12 @@
+package com.kparhar.main;
+
+public class Main {
+
+	public static void main(String[] args) {
+		it x = 0;
+		while(true) {
+			System.out.print(x);
+		}
+	}
+
+}

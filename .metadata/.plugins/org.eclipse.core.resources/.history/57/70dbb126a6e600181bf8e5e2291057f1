@@ -1,0 +1,46 @@
+
+
+public class Culminating {
+	
+	public static void main(String[] args) {
+		int runs = 100;
+		
+		int houseWins = 0;
+		int p1Wins = 0;
+		int p2Wins = 0;
+		
+		
+	}
+
+}
+
+
+class CardDeck {
+	int cards[] = new int[52];
+	
+	public CardDeck() {
+		for(int i = 0; i < 52; i++) {
+			cards[i] = i;
+		}
+	}
+	
+	public String getCardFromID(int ID) {
+		String card = "";
+		if(ID < 13) {
+			card += "Heart: ";
+		} else if(ID > 13 && ID < 13*2) {
+			card += "Spade: ";
+		} else if(ID > 13*2 && ID < 13*3) {
+			card += "Club: ";
+		} else if(ID > 13*3 && ID < 13*4) {
+			card += "Diamond: ";
+		} else {
+			card = "What the fuck did you input thats not a card";
+		}
+		return card;
+	}
+	
+	public void shuffle() {
+		
+	}
+}

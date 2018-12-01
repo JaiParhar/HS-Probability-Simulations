@@ -1,0 +1,11 @@
+
+public class MontyHall {
+
+	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
+		
+		int runs = 100;
+	}
+
+}

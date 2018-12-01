@@ -1,0 +1,45 @@
+import java.util.Random;
+
+public class MontyHall {
+
+	static Random rand = new Random();
+	
+	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
+		
+		int runs = 100;
+		
+		for(int run = 0; run < runs; run++) {
+			System.out.println("Run " + run + ":");
+			
+			//0, 1, 2
+			int correctDoor = rand.nextInt(3);
+			
+			//0, 1, 2
+			int chooseDoor = rand.nextInt(3);
+			
+			System.out.println("Car door is " + correctDoor + ", Chosen door is " + chooseDoor);
+			
+			int removeDoor;
+			if(chooseDoor == correctDoor) {
+				removeDoor = rand.nextInt(2);
+			} else {
+				removeDoor = 0;
+			}
+			
+			
+			
+		}
+	}
+	
+	public static int getRandomDoor(boolean removeDoor) {
+		if(!removeDoor) {
+			return rand.nextInt(3);
+		} else {
+			
+		}
+		return 0;
+	}
+
+}

@@ -1,0 +1,20 @@
+import java.util.Random;
+
+public class MontyHall {
+
+	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
+		
+		int runs = 100;
+		
+		Random rand = new Random();
+		
+		for(int run = 0; run < runs; run++) {
+			int correctDoor = rand.nextInt(3);
+			
+			
+		}
+	}
+
+}

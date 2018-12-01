@@ -1,0 +1,28 @@
+
+
+public class Culminating {
+	
+	public static void main(String[] args) {
+		int runs = 100;
+		
+		int houseWins = 0;
+		int p1Wins = 0;
+		int p2Wins = 0;
+		
+		
+	}
+
+}
+
+
+class CardDeck {
+	int cards[52];
+	
+	public CardDeck() {
+		
+	}
+	
+	public void shuffle() {
+		
+	}
+}

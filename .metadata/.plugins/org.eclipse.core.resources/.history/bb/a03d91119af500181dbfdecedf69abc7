@@ -1,0 +1,8 @@
+
+public class RunData {
+	
+	int 
+	int failsBeforeSuccess;
+	
+	
+}

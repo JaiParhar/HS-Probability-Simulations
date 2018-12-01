@@ -1,0 +1,14 @@
+
+public class DataCollector {
+
+	RunData runs[];
+	
+	public DataCollector(int r) {
+		runs = new RunData[r];
+	}
+	
+	public void addRun() {
+		
+	}
+	
+}

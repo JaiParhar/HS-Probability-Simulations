@@ -1,0 +1,17 @@
+import java.*;
+
+public class MontyHall {
+
+	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
+		
+		int runs = 100;
+		for(int run = 0; run < runs; run++) {
+			Math.random()*3;
+			
+			
+		}
+	}
+
+}

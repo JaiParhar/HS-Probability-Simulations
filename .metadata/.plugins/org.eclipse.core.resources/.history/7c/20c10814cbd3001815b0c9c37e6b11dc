@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.Random;
+
+public class MontyHall {
+
+	static Random rand = new Random();
+	
+	public static void main(String[] args) {
+		int wins = 0;
+		int losses = 0;
+		
+		int runs = 100;
+		
+		for(int run = 0; run < runs; run++) {
+			System.out.println("Run " + run + ":");
+			/*
+			//0, 1, 2
+			int correctDoor = getRandomDoor(false);
+			
+			//0, 1, 2
+			int chooseDoor = getRandomDoor(false);
+			
+			System.out.println("Car door is " + correctDoor + ", Chosen door is " + chooseDoor);
+			
+			int removeDoor = getRandomDoor(true);
+			
+			
+			*/
+		}
+	}
+	
+	
+	public class Doors {
+		
+		ArrayList<Integer> doors = new ArrayList<Integer>();
+		Random rand = new Random();
+		int correctDoor;
+		int selectedDoor;
+		
+		public Doors() {
+			doors.add(0); doors.add(1); doors.add(2);
+			correctDoor = rand.nextInt(3);
+			selectedDoor = rand.nextInt(3);
+		}
+		
+		public void removeDoor() {
+			if(correctDoor != selectedDoor) {
+				
+			}		}
+		
+	}
+
+}

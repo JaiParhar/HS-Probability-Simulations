@@ -1,0 +1,24 @@
+
+public class RunData {
+	
+	/*
+	 Spinner Result Index:
+	 0 = 
+	 
+	*/
+	
+	int spinnerResult;
+	int failsBeforeSuccess;
+	boolean houseWin;
+	
+	public RunData(int sR, int fBS, boolean hW) {
+		spinnerResult = sR;
+		failsBeforeSuccess = fBS;
+		houseWin = hW;
+	}
+	
+	public int getSpinnerResult() { return spinnerResult; }
+	public int getFailsBeforeSuccess() { return failsBeforeSuccess; }
+	public boolean getHouseWin() { return houseWin; }
+	
+}

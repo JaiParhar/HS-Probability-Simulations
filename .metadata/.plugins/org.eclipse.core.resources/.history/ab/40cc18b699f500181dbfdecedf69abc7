@@ -1,0 +1,10 @@
+
+public class DataCollector {
+
+	RunData runs;
+	
+	public DataCollector(int runs) {
+		
+	}
+	
+}

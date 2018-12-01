@@ -1,0 +1,16 @@
+
+public class RunData {
+	
+	int spinnerResult;
+	int failsBeforeSuccess;
+	boolean houseWin;
+	
+	public RunData(int sR, int fBS, boolean hW) {
+		spinnerResult = sR;
+		failsBeforeSuccess = fBS;
+		houseWin = hW;
+	}
+	
+	public boolean houseWon() { return houseWin; }
+	
+}
