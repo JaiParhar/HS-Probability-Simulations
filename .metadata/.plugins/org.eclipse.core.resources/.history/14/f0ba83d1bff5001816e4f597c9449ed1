@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+
+public class DataCollector {
+
+	ArrayList<RunData> runs;
+	
+	//Data
+	
+	
+	//Data
+	
+	public DataCollector(int r) {
+		runs = new ArrayList<RunData>();
+	}
+	
+	public void addRun(RunData run) {
+		runs.add(run);
+	}
+	
+	public void organizeData() {
+		
+	}
+	
+	public RunData getRun(int i) { return runs.get(i); }
+	
+}

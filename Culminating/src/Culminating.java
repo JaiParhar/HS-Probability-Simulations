@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -14,14 +15,14 @@ public class Culminating {
 		long simData[] = runSim(runs);
 		double timePerRun = (double)simData[TIME_ELAPSED]/(double)runs;
 		
-		/*System.out.print("Simulation took " + simData[TIME_ELAPSED] + " MS to do " + runs + " runs, ");
+		System.out.print("Simulation took " + simData[TIME_ELAPSED] + " MS to do " + runs + " runs, ");
 		System.out.print("with an average time of " + timePerRun + " MS per run.\n");
 		
 		System.out.println("House Wins: " + simData[HOUSE_WINS] + ", % = " + 100.0*(double)simData[HOUSE_WINS]/runs);
 		System.out.println("Player Wins Total: " + (simData[PLAYER_1_WINS]+simData[PLAYER_2_WINS]) + ", % = " + 100.0*(double)(simData[PLAYER_1_WINS]+simData[PLAYER_2_WINS])/runs);
 		System.out.println("Player 1 Wins: " + simData[PLAYER_1_WINS] + ", % = " + 100.0*(double)simData[PLAYER_1_WINS]/runs);
 		System.out.println("Player 2 Wins: " + simData[PLAYER_2_WINS] + ", % = " + 100.0*(double)simData[PLAYER_2_WINS]/runs);
-	*/}
+	}
 	
 	public static long[] runSim(long runs) {
 		
@@ -58,7 +59,7 @@ public class Culminating {
 					//Fail
 					hWin = true;
 					houseWins++;
-					data.addRun(new RunData(spinnerResult, failsBeforeSuccess, hWin));
+					data.addRun(new RunData(failsBeforeSuccess, hWin), spinnerResult);
 					continue gameloop;
 				case 1:
 					//Black
@@ -110,7 +111,7 @@ public class Culminating {
 					}
 					failsBeforeSuccess = i;
 					hWin = false;
-					data.addRun(new RunData(spinnerResult, failsBeforeSuccess, hWin));
+					data.addRun(new RunData(failsBeforeSuccess, hWin), spinnerResult);
 					
 					System.out.println("% Completed: " + 100.0*((double)r/(double)runs));
 					
@@ -121,13 +122,17 @@ public class Culminating {
 			hWin = true;
 			houseWins++;
 			
-			data.addRun(new RunData(spinnerResult, failsBeforeSuccess, hWin));
+			data.addRun(new RunData(failsBeforeSuccess, hWin), spinnerResult);
 			
 			System.out.println("% Completed: " + 100.0*((double)r/(double)runs));
 			
 		}
 		
-		System.out.println(data.getRun(9).getFailsBeforeSuccess());
+		try {
+			data.outputData();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		long timeElapsedMS = System.currentTimeMillis() - startTimeMS;
 		

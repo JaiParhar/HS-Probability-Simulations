@@ -13,22 +13,18 @@ public class RunData {
 	 7 = Choose Rank and Colour
 	*/
 	
-	int spinnerResult;
 	int failsBeforeSuccess;
 	boolean houseWin;
 	
 	public RunData() {}
-	public RunData(int sR, int fBS, boolean hW) {
-		spinnerResult = sR;
+	public RunData(int fBS, boolean hW) {
 		failsBeforeSuccess = fBS;
 		houseWin = hW;
 	}
 	
-	public void setSpinnerResult(int sR) { spinnerResult = sR; }
 	public void setFailsBeforeSuccess(int fBS) { failsBeforeSuccess = fBS; }
 	public void setHouseWin(boolean hW) {  houseWin = hW; }
 	
-	public int getSpinnerResult() { return spinnerResult; }
 	public int getFailsBeforeSuccess() { return failsBeforeSuccess; }
 	public boolean getHouseWin() { return houseWin; }
 	
