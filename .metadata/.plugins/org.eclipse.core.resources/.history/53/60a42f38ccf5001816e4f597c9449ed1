@@ -11,7 +11,7 @@ public class Culminating {
 	public static final int PLAYER_2_WINS = 3;
 	
 	public static void main(String[] args) {
-		long runs = 10000000;
+		long runs = 10;
 		long simData[] = runSim(runs);
 		double timePerRun = (double)simData[TIME_ELAPSED]/(double)runs;
 		

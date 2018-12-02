@@ -22,9 +22,7 @@ public class DataCollector {
 	}
 	
 	public void addRun(RunData run, int spinnerVal) {
-		if(spinnerVal != -1) {
-			runs[spinnerVal].add(run);
-		}
+		runs[spinnerVal].add(run);
 	}
 	
 	public void outputData() throws IOException {
